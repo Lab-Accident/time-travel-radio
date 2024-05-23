@@ -1,0 +1,27 @@
+.letter-row {
+    display: grid;
+    grid-template-columns: 50px 120px 50px 35px 60px 35px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; 
+}
+
+.letter-row h1 {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-weight: 100;
+}
+
+.letter-row label {
+    margin: 0;
+    padding: 0;
+}
+
+.letter-row input {
+    margin: 0;
+    text-align: center;
+    padding: 2px;
+    text-align: center;
+}

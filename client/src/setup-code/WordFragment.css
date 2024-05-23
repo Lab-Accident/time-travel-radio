@@ -1,0 +1,11 @@
+.word-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.word-container input {
+    width: 340px;
+    text-align: center;
+}

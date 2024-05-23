@@ -1,0 +1,92 @@
+{
+    "recording1": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 15,
+                "stations": [6, 9]
+            },
+            {
+                "start": 15,
+                "end": 30,
+                "stations": [11]
+            }
+        ]
+    },
+    "recording2": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 20,
+                "stations": [10, 4]
+            },
+            {
+                "start": 20,
+                "end": 35,
+                "stations": [10, 5]
+            },
+            {
+                "start": 40,
+                "end": 60,
+                "stations": [8, 3, 12]
+            }
+        ]
+    },
+    "recording3": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 20,
+                "stations": [7]
+            },
+            {
+                "start": 20,
+                "end": 40,
+                "stations": [7, 8]
+            }
+        ]
+    },
+    "recording4": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 20,
+                "stations": [1, 3, 2]
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "stations": [3, 6]
+            },
+            {
+                "start": 40,
+                "end": 60,
+                "stations": [10, 1, 4, 9]
+            }
+        ]
+    },
+    "recording5": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 15,
+                "stations": [12, 8]
+            },
+            {
+                "start": 15,
+                "end": 30,
+                "stations": [9]
+            },
+            {
+                "start": 30,
+                "end": 45,
+                "stations": [11, 12]
+            },
+            {
+                "start": 45,
+                "end": 60,
+                "stations": [5]
+            }
+        ]
+    }
+}
