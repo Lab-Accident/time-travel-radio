@@ -3,7 +3,7 @@ import './Letter.css';
 
 import { getLetterValue } from './Util.jsx';
 
-const NUM_CHANNELS = 12;
+const NUM_CHANNELS = 7;
 
 const Letter = ({ letter, updateLength, updateStart }) => {
     const targetValue = getLetterValue(letter.letter);

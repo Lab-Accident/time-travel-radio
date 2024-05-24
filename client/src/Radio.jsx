@@ -4,7 +4,7 @@ import './Radio.css';
 
 const MAX_STATIONS = 12;
 
-const API_URL = '/';
+const API_URL = '';
 
 const Radio = () => {
     const [radioURL, setRadioURL] = useState(null);
@@ -93,7 +93,7 @@ const Radio = () => {
     const fetchRadio = async () => {
         if (!stationNumber) { return; }
         try {
-            const fileResponse = await axios.get(`${API_URL} /api/stations/${stationNumber}`, {
+            const fileResponse = await axios.get(`${API_URL}/api/stations/${stationNumber}`, {
                 responseType: 'blob'
             });
             const url = URL.createObjectURL(fileResponse.data);

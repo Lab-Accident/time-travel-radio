@@ -6,7 +6,7 @@ import { getColor } from './Util';
 import { v4 as uuidv4 } from 'uuid';
 
 
-const NUM_CHANNELS = 12;
+const NUM_CHANNELS = 7;
 const AUDIO_LENGTH = 12;
 
 function createDefaultMatrix() {

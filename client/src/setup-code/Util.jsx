@@ -1,5 +1,5 @@
 
-const NUM_CHANNELS = 12;
+const NUM_CHANNELS = 7;
 
 const getLetterValue = (letter) => {
     return letter.toUpperCase().charCodeAt(0) - 64;

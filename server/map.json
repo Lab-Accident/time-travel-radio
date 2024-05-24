@@ -1,0 +1,97 @@
+{
+    "recording1": { 
+        "segments": [
+            {
+                "start": 10,
+                "end": 20,
+                "stations": [6, 7]
+            },
+            {
+                "start": 30,
+                "end": 40,
+                "stations": [5]
+            },
+            {
+                "start": 40,
+                "end": 50,
+                "stations": [7, 3, 4]
+            },
+            {
+                "start": 50,
+                "end": 60,
+                "stations": [4]
+            }
+        ]
+    },
+    "recording2": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 20,
+                "stations": [1]
+            },
+            {
+                "start": 30,
+                "end": 40,
+                "stations": [7,1,2,4]
+            }
+        ]
+    },
+    "recording3": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 10,
+                "stations": [7,5,3]
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "stations": [7, 6]
+            },
+            {
+                "start": 40,
+                "end": 50,
+                "stations": [1]
+            }
+        ]
+    },
+    "recording4": {
+        "segments": [
+            {
+                "start": 0,
+                "end": 10,
+                "stations": [6, 2, 4]
+            },
+            {
+                "start": 30,
+                "end": 40,
+                "stations": [3, 6]
+            },
+            {
+                "start": 40,
+                "end": 50,
+                "stations": [5]
+            },
+            {
+                "start": 50,
+                "end": 60,
+                "stations": [7,1,6,5]
+            }
+        ]
+    },
+    "recording5": {
+        "segments": [
+            {
+                "start": 10,
+                "end": 20,
+                "stations": [2,5]
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "stations": [1,2,3,4,5]
+            }
+        ]
+    }
+}

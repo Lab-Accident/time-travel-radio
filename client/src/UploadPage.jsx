@@ -4,14 +4,14 @@ import axios from 'axios'
 
 import './upload.css'
 
-const API_URL = "/";
+const API_URL = "";
 
 const recorder = new vmsg.Recorder({
     wasmURL: 'https://unpkg.com/vmsg@0.3.0/vmsg.wasm'
   })
   
   const MAX_RECORDINGS = 5;
-  const RECORDING_DURATION = 60000; 
+  const RECORDING_DURATION = 30000; 
   
   const UploadPage = () => {
 
