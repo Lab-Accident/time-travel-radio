@@ -1,0 +1,96 @@
+
+
+.upload-container {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1c0f01;
+    color: #241302;
+    border: 2px solid orange;
+    width: 800px;
+    padding: 20px 0px 200px 0px;
+    font-weight: bold;
+    text-align: left; 
+    text-shadow: 0 0 4px #f90;
+    position: relative;
+    line-height: 0.8;
+    box-shadow: 0 0 7px #f90;
+    
+  }
+  
+  .env {
+    color: orange;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .user {
+    color:magenta; /* Change username color */
+  }
+
+  .prompt {
+    color: blue;/* Change username color */
+  }
+  
+
+  
+  .audio-entry {
+    margin-top: 10px;
+  }
+  
+  .audio-label {
+    color: orange;
+    margin: 0;
+    font-size: 14px; /* Smaller font size */
+  }
+  
+  .button {
+    background-color: #00f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+  }
+  
+  .button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .button:hover {
+    background-color: #00a;
+  }
+  
+  .upload-header {
+    display: flex;
+    background-color: orange;
+    color: rgba(28, 15, 1, 0.8);
+    padding: 0;
+    width: 800px;
+    height: 11px;
+    vertical-align: top;
+    line-height: 0.8;
+    box-shadow: 0 0 6px #f90;
+    font-size: 16px;
+    width: 100%;
+    text-shadow: 0 0 1px #1c0f01;
+}
+  
+  
+.recording {
+    background-color: #ffa500;
+    opacity: 0.9;
+    height: 10px;
+    box-shadow: 0 0 6px #f90;
+  }
+
+.recording .audio-label{
+    color:rgba(28, 15, 1, 0.8);
+    padding: 0;
+    vertical-align: middle;
+    
+    text-shadow: 0 0 1px #1c0f01;
+    opacity: 0.8;
+    /* transform: scaleY(1.2); */
+  }
+  
+  

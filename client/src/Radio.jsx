@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import './Radio.css';
+
+const MAX_STATIONS = 12;
 
 const Radio = () => {
     const [radioURL, setRadioURL] = useState(null);
@@ -38,6 +41,34 @@ const Radio = () => {
         };
     }, [radioURL]);
 
+    // useEffect(() => {
+    //     speedsync();
+
+    // const speedsync = () => {
+    //     if (audioRef.current) {
+    //         console.log("speedsync!!");
+    //                 const duration = audio.duration;
+    //                 const seconds = new Date().getTime() / 1000;
+    //                 const offset = seconds % duration;
+    //         let lag = audio.currentTime - offset; // will go crazy at the edges but ignoring for now
+    //         let playbackSpeed = Math.exp(-0.8 * lag);
+    //         if (playbackSpeed <= 0.1) {
+    //         playbackSpeed = 0.1
+    //         }
+    //         if (Math.abs(playbackSpeed - 1.0) < 0.01) {
+    //         playbackSpeed = 1;
+    //         }
+    //         audio.playbackRate = playbackSpeed;
+    //         if (playbackSpeed != 1.0) {
+            
+    //         console.log("lag " + lag);
+    //         console.log("speed " + playbackSpeed);
+    //         }
+    //         }
+    //     }
+    //         setInterval(() => speedsync(), 50);
+
+
     useEffect(() => {
         const timeInterval = setInterval(() => {
             setCurrentTime(new Date());
@@ -45,6 +76,16 @@ const Radio = () => {
 
         return () => clearInterval(timeInterval);
     }, []);
+
+    useEffect(() => {
+        const radioInterval = setInterval(() => {
+            fetchRadio();
+        }, 60000);
+
+        return () => clearInterval(radioInterval);
+    }, []);    
+
+
 
 
     const fetchRadio = async () => {
@@ -60,6 +101,12 @@ const Radio = () => {
         }
     };
 
+    const handleVolumeChange = (event) => {
+        if (audioRef.current) {
+            audioRef.current.volume = event.target.value / 100;
+        }
+    };
+
     const incrStation = () => {
         setStationNumber(prev => Math.min(prev + 1, 12));
     };
@@ -72,21 +119,39 @@ const Radio = () => {
     let formattedTime = currentTime.toLocaleTimeString();
 
     return (
-        <div>
-            <p>Current Time: {formattedTime}</p>
+        <div className="radio-container">
+            <span className='station-display' style ={{fontSize:`1.5rem`, width:`250px`}}>{formattedTime}</span>
+            <p className="radio-title">CHRONOWAVE RECIEVER</p>
 
-            <br />
-            <button onClick={decrStation} disabled={stationNumber === 1}>-</button>
-            <span> {formattedStation} </span>
-            <button onClick={incrStation} disabled={stationNumber === 12}>+</button>
-            <br />
+ 
+            <div className="station-controls">
+                <button onClick={decrStation} disabled={stationNumber === 1} className="control-button">&lt;</button>
+                <span className="station-display">{formattedStation}</span>
+                <button onClick={incrStation} disabled={stationNumber === MAX_STATIONS} className="control-button">&gt;</button>
+            </div>
+            
+            {/* <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                defaultValue="50" 
+                className="volume-slider" 
+                onChange={handleVolumeChange}
+            /> */}
+
             {radioURL && (
                 <audio 
                     ref={audioRef} 
                     src={radioURL} 
                     controls 
+                    className="radio-audio"
                     />
             )}
+            <div className="dial">
+                <div className="dial-knob"></div>
+            </div>
+            <div className="speaker-grills"></div>
+
         </div>
     );
 };

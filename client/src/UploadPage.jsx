@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import vmsg from 'vmsg'
 import axios from 'axios'
 
+import './upload.css'
+
 const recorder = new vmsg.Recorder({
     wasmURL: 'https://unpkg.com/vmsg@0.3.0/vmsg.wasm'
   })
@@ -79,6 +81,20 @@ const recorder = new vmsg.Recorder({
         startRecording()
       }
     }
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          record();
+        }
+      };
+  
+      document.addEventListener('keydown', handleKeyDown);
+  
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [record]);
   
     const formatTime = (ms) => {
       const seconds = Math.floor(ms / 1000) % 60;
@@ -88,22 +104,41 @@ const recorder = new vmsg.Recorder({
     const elapsedTimeDisplay = isRecording ? formatTime(elapsedTime) : '';
   
     return (
-      <div className="App">
-        <button disabled={isLoading || isRecording} onClick={record}>
-          {isRecording 
-            ? `Recording ${currRecordingIndex + 1}` 
-            : `Start Recording ${currRecordingIndex + 1}`
-          }
-        </button>
-        <p>{elapsedTimeDisplay}</p>
-          {recordings.map((recording, index) => (
-            <div 
-              key={index} 
-              className={currRecordingIndex === index && isRecording ? 'recording' : ''}>
-              <audio controls src={recording ? recording.url : ''}></audio>
-            </div>
-          ))}
+
+      <div className="upload-container">
+      <p className="env">(chronowaveenv) <span className="user">temporaldynamics@caltech</span>:<span className='prompt'>~</span>$ transmit2past record</p>
+
+
+      <div className="upload-header">
+      &emsp;PROG&emsp;&emsp;&emsp;&emsp;&emsp;FILE&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;LENGTH&emsp;&emsp;&emsp;&emsp;REPLAY
       </div>
+
+        {recordings.map((recording, index) => (
+          <div key={index} className={`audio-entry ${currRecordingIndex === index && isRecording ? 'recording' : ''}`}>
+            <p className="audio-label">&emsp;chronowave&emsp;&emsp;&emsp;track_{index + 1}.wav&emsp;&emsp;&emsp;&emsp;00:00:30&emsp;&emsp;&emsp;&emsp;
+            {recording && recording.url && (
+              <a href="#" onClick={() => playAudio(recording.url)}>&gt; </a>
+            )}
+            </p>
+          </div>
+        ))}
+        <p className="env">(chronowaveenv) <span className="user">temporaldynamics@caltech</span>:<span className='prompt'>~</span>
+        {isRecording
+          ? `$ recording ${currRecordingIndex + 1}`
+          : `$ begin recording track ${currRecordingIndex + 1} press enter|` 
+        }
+        </p>
+
+        {isRecording && ( <p className='env'>Now recording track_{currRecordingIndex + 1}.wav: {elapsedTimeDisplay} seconds elapsed</p>
+        )}
+
+        {recordings.map((recording, index) => (
+          <div key={index}>
+            <audio controls src={recording ? recording.url : ''}></audio>
+          </div>
+        ))}
+      </div>
+
     )
   }
 

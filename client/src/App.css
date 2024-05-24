@@ -1,3 +1,7 @@
+
+@import url("https://fonts.googleapis.com/css?family=VT323");
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,6 +9,28 @@
   text-align: center;
 }
 
-.recording {
-  background-color: #ffc107; 
+body {
+  background-color: black; 
+  display: flex;
+  /* color: green; */
+  font-family: 'VT323';
+  font-size: 2rem;
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
 }
+
+
+/* button {
+  background-color: black;
+  border: 3px solid green;
+  color: green;
+  font-family: 'VT323';
+  font-size: 1rem;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; 
+  color: inherit; 
+  font-family: inherit; 
+} */

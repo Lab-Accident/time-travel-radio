@@ -1,0 +1,115 @@
+
+
+
+.radio-container {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #191717;
+    color: orange;
+    border: 2px solid #3e3a3a;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+}
+
+.radio-time {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+
+}
+
+.station-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.control-button {
+    background-color: #373737;
+    color: orange;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.control-button:disabled {
+    background-color: #222;
+    color: #555;
+    cursor: not-allowed;
+}
+
+.station-display {
+    font-size: 1.2em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #000000;
+    border: 4px solid #1b1b1b;
+    border-radius: 5px;
+    text-shadow: 0 0 7px #f90;
+}
+
+.radio-audio {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.speaker-grills {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 90%;
+    height: 200px;
+    background: radial-gradient(circle, #373333 20%, transparent 40%) repeat 0 0;
+    background-size: 10px 10px;
+    border-radius: 40px;
+}
+
+.radio-title {
+    font-size: 0.8em;
+    font-family:Impact;
+    color: rgb(197, 128, 0);
+    margin-bottom: 20px;
+    margin-top:5px;
+    transform: scaleY(0.65);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dial {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #444;
+    border: 2px solid #555;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.dial-knob {
+    width: 30px;
+    height: 30px;
+    background-color: #666;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.volume-slider {
+    width: 80%;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+    color: orange;
+    opacity: 0.7;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.volume-slider:hover {
+    opacity: 1;
+}

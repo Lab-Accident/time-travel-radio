@@ -119,6 +119,7 @@ const generateMatrix = () => {
         flexDirection: `row`,
         justifyContent: `space-around`,
         gap: `50px`,
+        backgroundColor: `white`,
       }}>
       <div className='words-list'
         style = {{

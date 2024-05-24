@@ -14,7 +14,8 @@ SEGMENTS_DIR = 'segments'
 RECORDINGS_DIR = 'recordings'
 STATIONS_DIR = 'stations'
 
-OVERLAP = 100
+OVERLAP = 10
+DEF_INTERVAL = 600
 
 @app.route("/api/users", methods=['GET'])
 def get_users():
@@ -55,7 +56,7 @@ def serve_station(number):
     station_audio.export(f'{STATIONS_DIR}/station{number}.wav', format='wav')
     return send_file(f'{STATIONS_DIR}/station{number}.wav', mimetype='audio/wav')
 
-def split_audio(audio, n, interval = 500):
+def split_audio(audio, n, interval = DEF_INTERVAL):
     duration = len(audio)
     segments = math.ceil(duration / interval)
 
@@ -65,10 +66,11 @@ def split_audio(audio, n, interval = 500):
 
     for i in range(0, segments*interval, interval):
         for t in range(n):
-            # add audio from segment curr to track
+            # add audio from segment to curr track
             if t == curr_track:
-                start = i - 10 if i - OVERLAP >= 0 else i
-                end = i + interval + OVERLAP if i + interval + 10 <= 60000 else i + interval
+                start = i - OVERLAP if i - OVERLAP >= 0 else i
+                end = i + interval + OVERLAP if i + interval + OVERLAP <= 60000 else i + interval
+                print(f"Start: {start}, End: {end}, curr_track: {curr_track}")
                 split_tracks[t] += audio[start:end]
 
             # add silence to other tracks
@@ -107,8 +109,9 @@ def assemble_station(station):
     station_audio = AudioSegment.silent(duration=60000)
     for file in station_files:
         start = int(file.split('_')[1]) - OVERLAP
-        start = start if start >= 0 else 0
+        start = (start * 1000) - OVERLAP if start >= 0 else 0
         audio = AudioSegment.from_file(f'{SEGMENTS_DIR}/{file}')
+        print(f"Overlaying {file} at {start}")
         station_audio = station_audio.overlay(audio, position=start)
     
     

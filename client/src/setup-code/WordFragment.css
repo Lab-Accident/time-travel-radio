@@ -3,9 +3,14 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    font-family: arial;
+    font-size: 1rem;
+
 }
 
 .word-container input {
     width: 340px;
     text-align: center;
+
 }
+
