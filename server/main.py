@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 from pydub import AudioSegment
 from io import BytesIO
@@ -16,6 +16,16 @@ STATIONS_DIR = 'stations'
 
 OVERLAP = 10
 DEF_INTERVAL = 600
+
+@app.route('/<path:path>')
+def serve_app(path):
+    return send_file('../client/dist/index.html')
+
+
+@app.route('/assets/<path:path>')
+def serve_asssets(path):
+    return send_from_directory('../client/dist/assets', path)
+
 
 @app.route("/api/users", methods=['GET'])
 def get_users():

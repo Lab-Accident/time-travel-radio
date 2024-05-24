@@ -12,12 +12,12 @@ const RadioPage = ({ recordings }) => {
 
     const fetchRadios = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/split_tracks/files');
+          const response = await axios.get(API_URL + '/api/split_tracks/files');
           const files = response.data.split_tracks;
     
           const radiosData = await Promise.all(
             files.map(async (file) => {
-              const fileResponse = await axios.get(`http://localhost:8080/api/split_tracks/${file}`, {
+              const fileResponse = await axios.get(`${API_URL}/api/split_tracks/${file}`, {
                 responseType: 'blob'
               });
               const url = URL.createObjectURL(fileResponse.data);

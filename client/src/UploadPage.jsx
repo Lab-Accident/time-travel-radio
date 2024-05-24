@@ -4,6 +4,8 @@ import axios from 'axios'
 
 import './upload.css'
 
+const API_URL = "/";
+
 const recorder = new vmsg.Recorder({
     wasmURL: 'https://unpkg.com/vmsg@0.3.0/vmsg.wasm'
   })
@@ -50,7 +52,7 @@ const recorder = new vmsg.Recorder({
       formData.append('index', index);
       
       try {
-      const response = await axios.post('http://localhost:8080/api/upload_audio', formData, {
+      const response = await axios.post(API_URL + '/api/upload_audio', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

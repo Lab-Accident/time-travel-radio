@@ -13,16 +13,6 @@ const MAX_RECORDINGS = 5;
 
 function App() {
 
-  const fetchAPI = async () => {
-    const response = await axios.get('http://localhost:8080/api/users')
-    console.log(response.data.users);
-  };
-
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
-
   return (
     <div className="App">
       <Router>
